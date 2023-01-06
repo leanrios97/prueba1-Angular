@@ -1,0 +1,42 @@
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)] ="person.name" />
+<p *ngIf="person.name === 'Leo Messi'" > Soy Leo Messi </p>
+<p *ngIf="person.name === 'Lean Rios'" > Soy Lean Rios </p>
+
+
+<hr/>
+<h1>NgModel</h1>
+<p>Nombre: {{person.name}} </p>
+<input type="text" required #nameInput="ngModel" [(ngModel)] ="person.name" >
+<p>Valid: {{nameInput.valid}} </p>
+
+<p>Edad {{person.age}} </p>
+<input type="number" max="100" min="17" required #ageInput="ngModel" [(ngModel)] ="person.age" >
+<p>Valid: {{ageInput.valid}} </p>
+
+<hr/>
+<h1 id="1">Eventos</h1>
+<button [disabled] = "btnDisabled " id="btnDisabled">Enviar</button>
+<button (click)="toggleButton()" id="toggleButton">Toggle Button</button>
+<p>Edad: {{person.age}} </p>
+<button (click)="increaseAge()">Age +</button>
+
+<div class="box" (scroll)= "onScroll($event)">
+  <p>Lionel Andrés Messi Cuccittini, conocido como Leo Messi, es un futbolista argentino que juega como delantero o centrocampista. Jugador histórico del Fútbol Club Barcelona, al que estuvo ligado veinte años, desde 2021 integra el plantel del Paris Saint-Germain de la Ligue 1 de Francia.</p>
+</div>
+<p>Nombre: {{person.name}} </p>
+<input type="text" [value] ="person.name" (keyup)="changeName($event)">
+
+<hr/>
+<h1 id="2">Propiedades</h1>
+<button [disabled] = "btnDisabled ">Enviar</button>
+<input type="text" [value] ="name">
+<progress max ="100" [value]="age"></progress>
+<img width="100" [src]="img">
+
+<hr/>
+<h1 id="3">Hola gentuli</h1>
+<h2> {{'Que onda peoplee XD '.repeat(5) }}</h2>
+<p> 3 + 3 = {{3 + 3}} </p>
+<h3>Hola soy {{ name }} y mi edad es {{ age }} </h3>
+<img src= {{img}} alt="image">
